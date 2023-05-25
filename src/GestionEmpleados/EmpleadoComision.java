@@ -1,16 +1,15 @@
 
-package empleado;
+package GestionEmpleados;
+
+import java.util.Scanner;
 
 
-public class Comision {
+public class EmpleadoComision extends Empleado{
     
-    private String nombre;
-    private String apellidos;
-    private int numeroSeguroSocial;
     private double ventasBrutas;
     private double tarifaComision;
     
-    public Comision () {
+    public EmpleadoComision () {
     } 
 
     public String getNombre() {
@@ -57,7 +56,7 @@ public class Comision {
     public String toString() {
         return "Empleado{" + "nombre=" + nombre + ", apellidos=" + apellidos + ", numeroSeguroSocial=" + numeroSeguroSocial + ", Ventas Brutas: " + ventasBrutas + ", Comisión: " + tarifaComision + ", sueldo: " + sueldo() + '}';
     }
-    
+    @Override
     public double sueldo () {
         
         double sueldo = getVentasBrutas() * (getTarifaComision()/100);
@@ -65,11 +64,11 @@ public class Comision {
     }
     
     public static boolean comprobarSSComision(int sS) {
-        Empleado empleado = new Empleado();
+        EmpleadoHoras empleado = new EmpleadoHoras();
         
         int num = 0;
         boolean booleano;
-        for (Comision comisionarray : Main.arrayComision) {
+        for (EmpleadoComision comisionarray : Main.arrayEmpleadoComision) {
             if (comisionarray.getNumeroSeguroSocial() == sS) {
                 num++;
             }
@@ -80,6 +79,32 @@ public class Comision {
             booleano = false;
         }
         return booleano;
+    }
+    
+        public static void aniadirEmpleadoComision() {
+        Scanner teclado = new Scanner(System.in);
+        String nombre;
+        String apellidos;
+        int numeroSeguridadSocial;
+        double ventasBrutas;
+        double tarifaComision;
+        EmpleadoComision comision = new EmpleadoComision();
+        System.out.println("¿Cuál es su nombre?");
+        nombre = teclado.nextLine();
+        comision.setNombre(nombre);
+        System.out.println("¿Cuáles son sus apellidos?");
+        apellidos = teclado.nextLine();
+        comision.setApellidos(apellidos);
+        System.out.println("¿Cual es su n\u00famero de la Seguridad Social?");
+        numeroSeguridadSocial = teclado.nextInt();
+        comision.setNumeroSeguroSocial(numeroSeguridadSocial);
+        System.out.println("¿Cuales han sido sus ventas Brutas?");
+        ventasBrutas = teclado.nextDouble();
+        comision.setVentasBrutas(ventasBrutas);
+        System.out.println("¿Cual es su porcentaje de comisi\u00f3n?");
+        tarifaComision = teclado.nextDouble();
+        comision.setTarifaComision(tarifaComision);
+        Main.arrayEmpleadoComision.add(comision);
     }
     
 }

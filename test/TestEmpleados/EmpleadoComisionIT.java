@@ -2,8 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
  */
-package empleado;
+package TestEmpleados;
 
+import GestionEmpleados.Main;
+import GestionEmpleados.EmpleadoComision;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -15,9 +17,9 @@ import static org.junit.Assert.*;
  *
  * @author ENVY
  */
-public class ComisionIT {
+public class EmpleadoComisionIT {
     
-    public ComisionIT() {
+    public EmpleadoComisionIT() {
     }
     
     @BeforeClass
@@ -42,7 +44,7 @@ public class ComisionIT {
     @Test
     public void testSueldo() {
         System.out.println("Sueldo");
-        Comision comision = new Comision();
+        EmpleadoComision comision = new EmpleadoComision();
         comision.setTarifaComision(10);
         comision.setVentasBrutas(3000);
         double expResult = 300.0;
@@ -58,18 +60,18 @@ public class ComisionIT {
     @Test
     public void testComprobarSSComision() {
         System.out.println("comprobarSSComision");
-        Comision comision1 = new Comision();
+        EmpleadoComision comision1 = new EmpleadoComision();
         comision1.setNumeroSeguroSocial(123456789);
-        Comision comision2 = new Comision();
+        EmpleadoComision comision2 = new EmpleadoComision();
         comision2.setNumeroSeguroSocial(987654321);
         
-        Main.arrayComision.add(comision1);
-        Main.arrayComision.add(comision2);
+        Main.arrayEmpleadoComision.add(comision1);
+        Main.arrayEmpleadoComision.add(comision2);
         
         
-        assertTrue(Comision.comprobarSSComision(123456789));
-        assertTrue(Comision.comprobarSSComision(987654321));
-        assertFalse(Comision.comprobarSSComision(55555555));
+        assertTrue(EmpleadoComision.comprobarSSComision(123456789));
+        assertTrue(EmpleadoComision.comprobarSSComision(987654321));
+        assertFalse(EmpleadoComision.comprobarSSComision(55555555));
         
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");

@@ -2,24 +2,25 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit4TestClass.java to edit this template
  */
-package empleado;
+package TestEmpleados;
 
+import GestionEmpleados.Main;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import empleado.Empleado;
+import GestionEmpleados.EmpleadoHoras;
 import java.util.ArrayList;
 
 /**
  *
  * @author ENVY
  */
-public class EmpleadoIT {
+public class EmpleadoHorasIT {
     
-    public EmpleadoIT() {
+    public EmpleadoHorasIT() {
     }
     
     @BeforeClass
@@ -44,7 +45,7 @@ public class EmpleadoIT {
     @Test
     public void testSueldo() {
         System.out.println("Sueldo");
-        Empleado empleado = new Empleado();
+        EmpleadoHoras empleado = new EmpleadoHoras();
         empleado.setHoras(20);
         empleado.setPrecioHora(10);
         double expResult = 200.0;
@@ -56,17 +57,17 @@ public class EmpleadoIT {
 
     @Test
     public void testComprobarSSEmpleado() {
-        Empleado empleado1 = new Empleado();
+        EmpleadoHoras empleado1 = new EmpleadoHoras();
         empleado1.setNumeroSeguroSocial(123456789);
-        Empleado empleado2 = new Empleado();
+        EmpleadoHoras empleado2 = new EmpleadoHoras();
         empleado2.setNumeroSeguroSocial(987654321);
         
-        Main.arrayEmpleado.add(empleado1);
-        Main.arrayEmpleado.add(empleado2);
+        Main.arrayEmpleadoHoras.add(empleado1);
+        Main.arrayEmpleadoHoras.add(empleado2);
         
-        assertTrue(Empleado.comprobarSSEmpleado(123456789));
-        assertTrue(Empleado.comprobarSSEmpleado(987654321));
-        assertFalse(Empleado.comprobarSSEmpleado(555555555));
+        assertTrue(EmpleadoHoras.comprobarSSEmpleado(123456789));
+        assertTrue(EmpleadoHoras.comprobarSSEmpleado(987654321));
+        assertFalse(EmpleadoHoras.comprobarSSEmpleado(555555555));
         
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");

@@ -1,13 +1,13 @@
 
-package empleado;
+package GestionEmpleados;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     
-    public static ArrayList<Empleado> arrayEmpleado = new ArrayList<Empleado>();
-    public static ArrayList<Comision> arrayComision = new ArrayList<Comision>();
+    public static ArrayList<EmpleadoHoras> arrayEmpleadoHoras = new ArrayList<EmpleadoHoras>();
+    public static ArrayList<EmpleadoComision> arrayEmpleadoComision = new ArrayList<EmpleadoComision>();
     
     public static void main(String[] args) {
         
@@ -39,46 +39,11 @@ public class Main {
                     
                     case 1: 
 
-                        Empleado empleado = new Empleado ();
-                        System.out.println("¿Cuál es su nombre?");
-                        nombre = teclado.nextLine();
-                        empleado.setNombre(nombre);
-                        System.out.println("¿Cuáles son sus apellidos?");
-                        apellidos = teclado.nextLine();
-                        empleado.setApellidos(apellidos);
-                        System.out.println("¿Cual es su número de la Seguridad Social?");
-                        numeroSeguridadSocial = teclado.nextInt();
-                        empleado.setNumeroSeguroSocial(numeroSeguridadSocial);
-                        System.out.println("¿Cuánto cobra por hora?");
-                        precioHora = teclado.nextDouble();
-                        empleado.setPrecioHora(precioHora);
-                        System.out.println("¿Cuántas horas ha echado de trabajo?");
-                        horas = teclado.nextDouble();
-                        empleado.setHoras(horas);
-
-                        arrayEmpleado.add(empleado);
+                        EmpleadoHoras.aniadirEmpleadoHoras();
                         break;
                     case 2:
 
-                        Comision comision = new Comision ();
-
-                        System.out.println("¿Cuál es su nombre?");
-                        nombre = teclado.nextLine();
-                        comision.setNombre(nombre);
-                        System.out.println("¿Cuáles son sus apellidos?");
-                        apellidos = teclado.nextLine();
-                        comision.setApellidos(apellidos);
-                        System.out.println("¿Cual es su número de la Seguridad Social?");
-                        numeroSeguridadSocial = teclado.nextInt();
-                        comision.setNumeroSeguroSocial(numeroSeguridadSocial);
-                        System.out.println("¿Cuales han sido sus ventas Brutas?");
-                        ventasBrutas = teclado.nextDouble();
-                        comision.setVentasBrutas(ventasBrutas);
-                        System.out.println("¿Cual es su porcentaje de comisión?");
-                        tarifaComision = teclado.nextDouble();
-                        comision.setTarifaComision(tarifaComision);
-
-                        arrayComision.add(comision);
+                        EmpleadoComision.aniadirEmpleadoComision();
                         break;
                 }
                 break;
@@ -111,9 +76,9 @@ public class Main {
                        
                        System.out.println("¿Cual es su numero de la seguridad Social del empleado?");
                        numeroSeguridadSocial = teclado.nextInt();
-                       } while (!Empleado.comprobarSSEmpleado(numeroSeguridadSocial));
+                       } while (!EmpleadoHoras.comprobarSSEmpleado(numeroSeguridadSocial));
                        
-                       for (Empleado empleado3: arrayEmpleado) {
+                       for (EmpleadoHoras empleado3: arrayEmpleadoHoras) {
                            if (empleado3.getNumeroSeguroSocial() == numeroSeguridadSocial) {
                            switch (opcion4) {
                            case 1:
@@ -172,9 +137,9 @@ public class Main {
                        
                        System.out.println("¿Cual es su numero de la seguridad Social del empleado?");
                        numeroSeguridadSocial = teclado.nextInt();
-                       } while (!Comision.comprobarSSComision(numeroSeguridadSocial));
+                       } while (!EmpleadoComision.comprobarSSComision(numeroSeguridadSocial));
                        
-                       for (Comision comision: arrayComision) {
+                       for (EmpleadoComision comision: arrayEmpleadoComision) {
                            if (comision.getNumeroSeguroSocial() == numeroSeguridadSocial) {
                            switch (opcion4) {
                            case 1:
@@ -223,32 +188,46 @@ public class Main {
                 opcion5 = teclado.nextInt();
                 teclado.nextLine();
                 
-                int num3 = 0;
-                do {
-                       if (num3 >0) {
-                           System.out.println("*********************************");
-                           System.out.println("Empleado no encontrado, prueba otra vez");
-                       }
-                       num3++;
-                       
-                       System.out.println("¿Cual es su numero de la seguridad Social del empleado?");
-                       numeroSeguridadSocial = teclado.nextInt();
-                } while (!Comision.comprobarSSComision(numeroSeguridadSocial));
+               
                 
                 switch(opcion5)  {
                 
               
-                    case 1:
+                        case 1:
+                            int num3 = 0;
+                        do {
+                            if (num3 >0) {
+                             System.out.println("*********************************");
+                             System.out.println("Empleado no encontrado, prueba otra vez");
+                        }
+                            num3++;
+                       
+                            System.out.println("¿Cual es su numero de la seguridad Social del empleado?");
+                            numeroSeguridadSocial = teclado.nextInt();
+                        } while (!EmpleadoHoras.comprobarSSEmpleado(numeroSeguridadSocial));
                 
-                        for (Empleado empleadoarray : arrayEmpleado) {
+                        for (EmpleadoHoras empleadoarray : arrayEmpleadoHoras) {
                             if (empleadoarray.getNumeroSeguroSocial() == numeroSeguridadSocial) {
+         
                                 System.out.println(empleadoarray.toString());
                             }
                         }
                     break;
                     
                     case 2:
-                        for (Comision comisionarray : arrayComision) {
+                        int num4 = 0;
+                do {
+                       if (num4 >0) {
+                           System.out.println("*********************************");
+                           System.out.println("Empleado no encontrado, prueba otra vez");
+                       }
+                       num4++;
+                       
+                       System.out.println("¿Cual es su numero de la seguridad Social del empleado?");
+                       numeroSeguridadSocial = teclado.nextInt();
+                } while (!EmpleadoComision.comprobarSSComision(numeroSeguridadSocial));
+                
+                        for (EmpleadoComision comisionarray : arrayEmpleadoComision) {
                             if (comisionarray.getNumeroSeguroSocial() == numeroSeguridadSocial) {
                                 System.out.println(comisionarray.toString());
                             }
@@ -266,12 +245,12 @@ public class Main {
                 
                 switch (opcion6) {
                     case 1:
-                        for (Empleado empleadoarray2 : arrayEmpleado) {
+                        for (EmpleadoHoras empleadoarray2 : arrayEmpleadoHoras) {
                         System.out.println(empleadoarray2.toString());
                         }
                     break;
                     case 2:
-                        for (Comision comisionarray2 : arrayComision) {
+                        for (EmpleadoComision comisionarray2 : arrayEmpleadoComision) {
                         System.out.println(comisionarray2.toString());
                         }
                     break;
@@ -289,5 +268,7 @@ public class Main {
         } while (repeticionBucle);
         
     }
+
+
         
 }

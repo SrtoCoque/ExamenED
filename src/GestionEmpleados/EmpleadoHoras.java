@@ -1,15 +1,14 @@
 
-package empleado;
+package GestionEmpleados;
 
-public class Empleado {
+import java.util.Scanner;
+
+public class EmpleadoHoras extends Empleado {
     
-    private String nombre;
-    private String apellidos;
-    private int numeroSeguroSocial;
     private double precioHora;
     private double horas;
     
-    public Empleado () {
+    public EmpleadoHoras () {
     } 
 
     public String getNombre() {
@@ -57,6 +56,7 @@ public class Empleado {
         return "Empleado{" + "nombre=" + nombre + ", apellidos=" + apellidos + ", numeroSeguroSocial=" + numeroSeguroSocial + ", Precio Hora= " + precioHora + ", Horas: " + horas +", sueldo: " + sueldo() + '}';
     }
     
+    @Override
     public double sueldo () {
         
         double sueldo = getHoras() * getPrecioHora();
@@ -66,7 +66,7 @@ public class Empleado {
     public static boolean comprobarSSEmpleado(int sS) {
         int num = 0;
         boolean booleano;
-        for (Empleado empleadoarray : Main.arrayEmpleado) {
+        for (EmpleadoHoras empleadoarray : Main.arrayEmpleadoHoras) {
             if (empleadoarray.getNumeroSeguroSocial() == sS) {
                 num++;
             }
@@ -78,7 +78,32 @@ public class Empleado {
         }
         return booleano;
     }
-    
+        
+    public static void aniadirEmpleadoHoras() {
+        Scanner teclado = new Scanner(System.in);
+        String nombre;
+        String apellidos;
+        int numeroSeguridadSocial;
+        double precioHora;
+        double horas;
+        EmpleadoHoras empleado = new EmpleadoHoras();
+        System.out.println("¿Cuál es su nombre?");
+        nombre = teclado.nextLine();
+        empleado.setNombre(nombre);
+        System.out.println("¿Cuales son sus apellidos?");
+        apellidos = teclado.nextLine();
+        empleado.setApellidos(apellidos);
+        System.out.println("¿Cual es su n\u00famero de la Seguridad Social?");
+        numeroSeguridadSocial = teclado.nextInt();
+        empleado.setNumeroSeguroSocial(numeroSeguridadSocial);
+        System.out.println("¿Cuánto cobra por hora?");
+        precioHora = teclado.nextDouble();
+        empleado.setPrecioHora(precioHora);
+        System.out.println("¿Cuántas horas ha echado de trabajo?");
+        horas = teclado.nextDouble();
+        empleado.setHoras(horas);
+        Main.arrayEmpleadoHoras.add(empleado);
+    }
     
     
 }
