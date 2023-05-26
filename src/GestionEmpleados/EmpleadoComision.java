@@ -106,5 +106,56 @@ public class EmpleadoComision extends Empleado{
         comision.setTarifaComision(tarifaComision);
         Main.arrayEmpleadoComision.add(comision);
     }
+        
+    public static void modificarEmpleadoComisionTarifaComision(EmpleadoComision comision, Scanner teclado) {
+        double tarifaComision;
+        System.out.println("Su comisi\u00f3n es de " + comision.getTarifaComision() + "%, quieres modificarla por:");
+        tarifaComision = teclado.nextDouble();
+        comision.setTarifaComision(tarifaComision);
+    }
+
+    public static void modificarEmpleadoComisionApellidos(EmpleadoComision comision, Scanner teclado) {
+        String apellidos;
+        System.out.println("Quieres modificar " + comision.getApellidos() + " \u00bfPor?:");
+        teclado.nextLine();
+        apellidos = teclado.nextLine();
+        comision.setApellidos(apellidos);
+    }
+
+    public static void modificarEmpleadoComisionNombre(EmpleadoComision comision, Scanner teclado) {
+        System.out.println("Quieres modificar " + comision.getNombre() + " \u00bfPor?:");
+        teclado.nextLine();
+        String newNombre = teclado.nextLine();
+        comision.setNombre(newNombre);
+    }
+
+    public static int modificarEmpleadoComisionSS(EmpleadoComision comision, Scanner teclado, int numeroSeguridadSocial) {
+        System.out.println("Quieres modificar " + comision.getNumeroSeguroSocial() + " \u00bfPor?:");
+        teclado.nextLine();
+        numeroSeguridadSocial = teclado.nextInt();
+        comision.setNumeroSeguroSocial(numeroSeguridadSocial);
+        return numeroSeguridadSocial;
+    }
+
+    public static void modificarEmpleadoComisionVentas(EmpleadoComision comision, Scanner teclado) {
+        double ventasBrutas;
+        System.out.println("Sus ventas brutas son de: " + comision.getVentasBrutas() + ", quieres modificarlas por:");
+        ventasBrutas = teclado.nextDouble();
+        comision.setVentasBrutas(ventasBrutas);
+    }
+    
+    public static int buscarSSEmpleadoComision(int num2, Scanner teclado) {
+        int numeroSeguridadSocial;
+        do {
+            if (num2 > 0) {
+                System.out.println("*********************************");
+                System.out.println("Empleado no encontrado, prueba otra vez");
+            }
+            num2++;
+            System.out.println("\u00bfCual es su numero de la seguridad Social del empleado?");
+            numeroSeguridadSocial = teclado.nextInt();
+        } while (!EmpleadoComision.comprobarSSComision(numeroSeguridadSocial));
+        return numeroSeguridadSocial;
+    }
     
 }

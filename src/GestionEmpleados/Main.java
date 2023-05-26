@@ -67,50 +67,28 @@ public class Main {
                        opcion4 = teclado.nextInt();
                        teclado.nextLine();
                        
-                       do {
-                       if (num2 >0) {
-                           System.out.println("*********************************");
-                           System.out.println("Empleado no encontrado, prueba otra vez");
-                       }
-                       num2++;
-                       
-                       System.out.println("¿Cual es su numero de la seguridad Social del empleado?");
-                       numeroSeguridadSocial = teclado.nextInt();
-                       } while (!EmpleadoHoras.comprobarSSEmpleado(numeroSeguridadSocial));
+                    numeroSeguridadSocial = EmpleadoHoras.buscarSSEmpleadoHoras(num2, teclado);
                        
                        for (EmpleadoHoras empleado3: arrayEmpleadoHoras) {
                            if (empleado3.getNumeroSeguroSocial() == numeroSeguridadSocial) {
                            switch (opcion4) {
                            case 1:
                                
-                              System.out.println("Quieres modificar " + empleado3.getNombre()+ " ¿Por?:");
-                              teclado.nextLine();
-                              String newNombre = teclado.nextLine();
-                              empleado3.setNombre(newNombre);
+                                EmpleadoHoras.modificarEmpleadoHorasNombre(empleado3, teclado);
                               break;
                            case 2:
-                              System.out.println("Quieres modificar " + empleado3.getApellidos() + " ¿Por?:");
-                              teclado.nextLine();
-                              apellidos = teclado.nextLine();
-                              empleado3.setApellidos(apellidos);
+                                EmpleadoHoras.modificarEmpleadoHorasApellido(empleado3, teclado);
                               break;
                             
                            case 3:
-                              System.out.println("Quieres modificar " + empleado3.getNumeroSeguroSocial() + " ¿Por?:");
-                              teclado.nextLine();
-                              numeroSeguridadSocial = teclado.nextInt();
-                              empleado3.setNumeroSeguroSocial(numeroSeguridadSocial);
+                                numeroSeguridadSocial = EmpleadoHoras.modificarEmpleadoHorasSS(empleado3, teclado, numeroSeguridadSocial);
                               break;
                             
                            case 4:
-                              System.out.println("El precio por hora está en: " + empleado3.getPrecioHora() + ", quieres modificarlo por:");
-                              precioHora = teclado.nextDouble();
-                              empleado3.setPrecioHora(precioHora);
+                                EmpleadoHoras.modificarEmpleadoHorasPrecioHora(empleado3, teclado);
                               break;
                            case 5:
-                              System.out.println("Tiene acumuladas " + empleado3.getHoras() + "horas, quieres modificarlo por:");
-                              horas = teclado.nextDouble();
-                              empleado3.setHoras(horas);
+                                EmpleadoHoras.modificarEmpleadoHoraHoras(empleado3, teclado);
                               break;
                             }
                         break;   
@@ -128,50 +106,27 @@ public class Main {
                        opcion4 = teclado.nextInt();
                        teclado.nextLine();
                        
-                       do {
-                       if (num2 >0) {
-                           System.out.println("*********************************");
-                           System.out.println("Empleado no encontrado, prueba otra vez");
-                       }
-                       num2++;
-                       
-                       System.out.println("¿Cual es su numero de la seguridad Social del empleado?");
-                       numeroSeguridadSocial = teclado.nextInt();
-                       } while (!EmpleadoComision.comprobarSSComision(numeroSeguridadSocial));
+                    numeroSeguridadSocial = EmpleadoComision.buscarSSEmpleadoComision(num2, teclado);
                        
                        for (EmpleadoComision comision: arrayEmpleadoComision) {
                            if (comision.getNumeroSeguroSocial() == numeroSeguridadSocial) {
                            switch (opcion4) {
-                           case 1:
-                               
-                              System.out.println("Quieres modificar " + comision.getNombre()+ " ¿Por?:");
-                              teclado.nextLine();
-                              String newNombre = teclado.nextLine();
-                              comision.setNombre(newNombre);
+                           case 1:                               
+                                EmpleadoComision.modificarEmpleadoComisionNombre(comision, teclado);
                               break;
                            case 2:
-                              System.out.println("Quieres modificar " + comision.getApellidos() + " ¿Por?:");
-                              teclado.nextLine();
-                              apellidos = teclado.nextLine();
-                              comision.setApellidos(apellidos);
+                                EmpleadoComision.modificarEmpleadoComisionApellidos(comision, teclado);
                               break;
                             
                            case 3:
-                              System.out.println("Quieres modificar " + comision.getNumeroSeguroSocial() + " ¿Por?:");
-                              teclado.nextLine();
-                              numeroSeguridadSocial = teclado.nextInt();
-                              comision.setNumeroSeguroSocial(numeroSeguridadSocial);
+                                numeroSeguridadSocial = EmpleadoComision.modificarEmpleadoComisionSS(comision, teclado, numeroSeguridadSocial);
                               break;
                             
                            case 4:
-                              System.out.println("Sus ventas brutas son de: " + comision.getVentasBrutas() + ", quieres modificarlas por:");
-                              ventasBrutas = teclado.nextDouble();
-                              comision.setVentasBrutas(ventasBrutas);
+                                EmpleadoComision.modificarEmpleadoComisionVentas(comision, teclado);
                               break;
                            case 5:
-                              System.out.println("Su comisión es de " + comision.getTarifaComision() + "%, quieres modificarla por:");
-                              tarifaComision = teclado.nextDouble();
-                              comision.setTarifaComision(tarifaComision);
+                                EmpleadoComision.modificarEmpleadoComisionTarifaComision(comision, teclado);
                               break;
                             }
                         break;   
@@ -188,23 +143,12 @@ public class Main {
                 opcion5 = teclado.nextInt();
                 teclado.nextLine();
                 
-               
-                
                 switch(opcion5)  {
                 
               
                         case 1:
                             int num3 = 0;
-                        do {
-                            if (num3 >0) {
-                             System.out.println("*********************************");
-                             System.out.println("Empleado no encontrado, prueba otra vez");
-                        }
-                            num3++;
-                       
-                            System.out.println("¿Cual es su numero de la seguridad Social del empleado?");
-                            numeroSeguridadSocial = teclado.nextInt();
-                        } while (!EmpleadoHoras.comprobarSSEmpleado(numeroSeguridadSocial));
+                            numeroSeguridadSocial = EmpleadoHoras.buscarSSEmpleadoHoras(num3, teclado);
                 
                         for (EmpleadoHoras empleadoarray : arrayEmpleadoHoras) {
                             if (empleadoarray.getNumeroSeguroSocial() == numeroSeguridadSocial) {
@@ -216,16 +160,7 @@ public class Main {
                     
                     case 2:
                         int num4 = 0;
-                do {
-                       if (num4 >0) {
-                           System.out.println("*********************************");
-                           System.out.println("Empleado no encontrado, prueba otra vez");
-                       }
-                       num4++;
-                       
-                       System.out.println("¿Cual es su numero de la seguridad Social del empleado?");
-                       numeroSeguridadSocial = teclado.nextInt();
-                } while (!EmpleadoComision.comprobarSSComision(numeroSeguridadSocial));
+                        numeroSeguridadSocial = EmpleadoComision.buscarSSEmpleadoComision(num4, teclado);
                 
                         for (EmpleadoComision comisionarray : arrayEmpleadoComision) {
                             if (comisionarray.getNumeroSeguroSocial() == numeroSeguridadSocial) {
@@ -268,7 +203,5 @@ public class Main {
         } while (repeticionBucle);
         
     }
-
-
-        
+  
 }
