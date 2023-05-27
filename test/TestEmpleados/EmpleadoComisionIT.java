@@ -39,7 +39,10 @@ public class EmpleadoComisionIT {
     }
 
     /**
-     * Test of getNombre method, of class Comision.
+     * Test del método
+     * @see EmpleadoComision#sueldo() 
+     * Comprueba si lo que devuelve el método se corresponde a la multiplicacion de los 
+     * atributos ventasBrutas multiplicado por el atributo tarifaComision.
      */
     @Test
     public void testSueldo() {
@@ -55,7 +58,10 @@ public class EmpleadoComisionIT {
     }
 
     /**
-     * Test of comprobarSSComision method, of class Comision.
+     * Test del método
+     * @see EmpleadoComision#comprobarSSEmpleado(int) 
+     * Comprueba si existe un empleado con el número de Seguridad Social en el arrayEmpleadosComision de la clase Main,
+     * devolviendo true si sí existe o false si no existe.
      */
     @Test
     public void testComprobarSSComision() {
@@ -68,7 +74,6 @@ public class EmpleadoComisionIT {
         Main.arrayEmpleadoComision.add(comision1);
         Main.arrayEmpleadoComision.add(comision2);
         
-        
         assertTrue(EmpleadoComision.comprobarSSComision(123456789));
         assertTrue(EmpleadoComision.comprobarSSComision(987654321));
         assertFalse(EmpleadoComision.comprobarSSComision(55555555));
@@ -76,5 +81,5 @@ public class EmpleadoComisionIT {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
-    
+      
 }

@@ -40,7 +40,10 @@ public class EmpleadoHorasIT {
     }
 
     /**
-     * Test of sueldo method, of class Empleado.
+     * Test del método
+     * @see EmpleadoHoras#sueldo() 
+     * Comprueba si lo que devuelve el método se corresponde a la multiplicacion de los 
+     * atributos precioHora multiplicado por el atributo horas.
      */
     @Test
     public void testSueldo() {
@@ -54,7 +57,12 @@ public class EmpleadoHorasIT {
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
-
+    /**
+     * Test del método
+     * @see EmpleadoHoras#comprobarSSEmpleado(int) 
+     * Comprueba si existe un empleado con el número de Seguridad Social en el arrayEmpleadosHoras de la clase Main,
+     * devolviendo true si sí existe o false si no existe.
+     */
     @Test
     public void testComprobarSSEmpleado() {
         EmpleadoHoras empleado1 = new EmpleadoHoras();
